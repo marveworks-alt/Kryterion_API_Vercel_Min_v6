@@ -1,0 +1,25 @@
+{
+  "name": "kryterion-api-vercel",
+  "version": "0.1.6",
+  "private": true,
+  "scripts": {
+    "postinstall": "echo 'No prisma for stub; skipping generate'",
+    "vercel-build": "echo 'No build step needed for Vercel functions'"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@nestjs/common": "10.3.0",
+    "@nestjs/core": "10.3.0",
+    "@nestjs/platform-express": "10.3.0",
+    "reflect-metadata": "0.1.13",
+    "rxjs": "7.8.1",
+    "express": "4.19.2",
+    "helmet": "7.1.0",
+    "cors": "2.8.5"
+  },
+  "devDependencies": {
+    "typescript": "5.5.3"
+  }
+}
