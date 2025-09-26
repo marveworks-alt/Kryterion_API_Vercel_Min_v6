@@ -57,22 +57,25 @@ projects() {
   }
 
   @Get('rounds/current')
-  currentRound() {
-    return {
-      code: 'BASKET-A-2025',
-      name: 'K-Labs Basket A',
-      targetAmount: 100000000,
-      minAmount: 50000000,
-      status: 'OPEN',
-      instrument: { cap: 2500000000, discount: 0.20 },
-      openAt: new Date().toISOString(),
-      closeAt: new Date(Date.now() + 30*24*3600*1000).toISOString(),
-      documents: [
-        { title: 'Invitation Pack', url: 'https://example.com/invitation.pdf', type: 'INVITATION' },
-        { title: 'Studio SAFE', url: 'https://example.com/safe.pdf', type: 'SAFE' }
-      ]
-    };
-  }
+currentRound() {
+  const now = Date.now();
+  const openAt  = new Date(now - 7 * 24 * 3600 * 1000).toISOString();  // opened 7 days ago
+  const closeAt = new Date(now + 30 * 24 * 3600 * 1000).toISOString(); // closes in 30 days
+  return {
+    code: 'BASKET-A-2025',
+    name: 'K-Labs Basket A',
+    targetAmount: 100000000,
+    minAmount: 50000000,
+    status: 'OPEN',
+    instrument: { cap: 2500000000, discount: 0.20 },
+    openAt,
+    closeAt,
+    documents: [
+      { title: 'Invitation Pack', url: 'https://example.com/invitation.pdf', type: 'INVITATION' },
+      { title: 'Studio SAFE',     url: 'https://example.com/safe.pdf',       type: 'SAFE' }
+    ]
+  };
+}
 
   @Get('commitments/me')
   myCommitments() {
