@@ -3,6 +3,35 @@ import type { Response } from 'express';
 
 @Controller()
 export class AppController {
+  // --- Quarterly updates (stub) ---
+@Get('updates/quarterly')
+updates() {
+  return [
+    {
+      id: '2025-Q1',
+      title: 'Quarterly Update — Q1 2025',
+      period: '2025-Q1',
+      pdfUrl: 'https://example.com/updates/q1-2025.pdf'
+    },
+    {
+      id: '2025-Q2',
+      title: 'Quarterly Update — Q2 2025',
+      period: '2025-Q2',
+      pdfUrl: 'https://example.com/updates/q2-2025.pdf'
+    }
+  ];
+}
+
+// --- Projects list (stub) ---
+@Get('projects')
+projects() {
+  return [
+    { code: 'PULSE', name: 'FirstPulse', gate: 'G1', budgetCap: 15000000 },
+    { code: 'KINV',  name: 'K‑Invest Platform', gate: 'G0', budgetCap: 20000000 },
+    { code: 'KLABS', name: 'K‑Labs Ops Suite', gate: 'G2', budgetCap: 12000000 }
+  ];
+}
+
   @Get('/')
   home() {
     return {
